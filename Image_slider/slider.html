@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="image_container" id="imageContainer">
+            <div class="image_slider"><img src="b1.jpg" alt="Wallpaper 5"></div>
+            <div class="image_slider"><img src="b2.jpg" alt="Wallpaper 4"></div>
+            <div class="image_slider1"><img src="b3.jpg" alt="Wallpaper 3" class="active"></div>
+            <div class="image_slider"><img src="b4.jpg" alt="Wallpaper 2"></div>
+            <div class="image_slider"><img src="b5.jpg" alt="Wallpaper 1"></div>
+        </div>
+        <div class="button_container">
+            <button class="btn" onclick="moveSlider('prev')">←</button>
+            <button class="btn" onclick="moveSlider('next')">→</button>
+        </div>
+    </div>
+
+    <script>
+        let imageContainer = document.getElementById("imageContainer");
+
+        function moveSlider(direction) {
+            let sliders = Array.from(imageContainer.querySelectorAll('.image_slider img'));
+            let centerImage = document.querySelector('.image_slider1 img');
+            let allImages = sliders.map(img => img.src);
+            allImages.unshift(centerImage.src);
+
+            if (direction === 'next') {
+                allImages.push(allImages.shift());
+            } else {
+                allImages.unshift(allImages.pop());
+            }
+
+            centerImage.src = allImages[0];
+            sliders.forEach((img, index) => {
+                img.src = allImages[index + 1];
+            });
+        }
+
+        let autoSlide = setInterval(() => moveSlider('next'), 5000);
+
+        document.querySelectorAll(".btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                clearInterval(autoSlide);
+                autoSlide = setInterval(() => moveSlider('next'), 5000);
+            });
+        });
+    </script>
+</body>
+
+</html>

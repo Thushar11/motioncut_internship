@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+      .product {
+        background: #fff;
+        margin: 15px;
+        padding: 15px;
+        width: 250px;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .product img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+      .product h2 {
+        font-size: 18px;
+        color: #333;
+      }
+      .product p {
+        font-size: 16px;
+        color: #666;
+      }
+      .product button {
+        background: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 3px;
+        width: 100%;
+      }
+      .product button:hover {
+        background: #218838;
+      }
+    </style>
+    <script>
+      function addToCart(productName) {
+        alert(productName + " added to cart!");
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>My E-commerce Store</h1>
+    </header>
+    <div class="container">
+      <div class="product">
+        <img src="c:\Users\Tushar\Downloads\1img.jpeg" alt="Smartphone" />
+        <h2>Smartphone</h2>
+        <p><a href="description1.html">View Details</a></p>
+        <p>$29.99</p>
+        <button onclick="addToCart('Smartphone')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="2img.jpg" alt="Laptop" />
+        <h2>Earpod</h2>
+        <p><a href="description2.html">View Details</a></p>
+        <p>$39.99</p>
+        <button onclick="addToCart('Laptop')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="3img.jpeg" alt="Headphones" />
+        <h2>Charger</h2>
+        <p><a href="discription3.html">View Details</a></p>
+        <p>$49.99</p>
+        <button onclick="addToCart('Headphones')">Add to Cart</button>
+      </div>
+    </div>
+  </body>
+</html>
